@@ -87,3 +87,30 @@ func StringContain2(a, b string) bool {
 	}
 	return true
 }
+
+// StringContain3 String Contain
+// 解法3：素数相乘（不建议，因为素数的乘积结果非常大）
+func StringContain3(a, b string) bool {
+	p := [26]int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101}
+	f := 1
+	for i := 0; i < len(a); i++ {
+		x := p[a[i]-'A']
+		// 排除相同的字符，提高效率
+		if f%x == 1 {
+			f *= x
+		}
+	}
+	for i := 0; i < len(b); i++ {
+		x := p[a[i]-'A']
+		if f%x == 1 {
+			return false
+		}
+	}
+	return true
+}
+
+// StringContain4 String Contain
+// 解法4：位运算法
+func StringContain4(a, b string) bool {
+	return true
+}

@@ -44,6 +44,20 @@ func main() {
 	} else {
 		fmt.Println("Method 2 --> False")
 	}
+
+	// Method 3
+	// if StringContain3(a, b) {
+	// 	fmt.Println("Method 2 --> True")
+	// } else {
+	// 	fmt.Println("Method 2 --> False")
+	// }
+
+	// Method 4
+	if StringContain4(a, b) {
+		fmt.Println("Method 4 --> True")
+	} else {
+		fmt.Println("Method 4 --> False")
+	}
 }
 
 // Author: HackerZ
@@ -112,5 +126,14 @@ func StringContain3(a, b string) bool {
 // StringContain4 String Contain
 // 解法4：位运算法
 func StringContain4(a, b string) bool {
+	hash := 0
+	for i := 0; i < len(a); i++ {
+		hash |= (1 << (a[i] - 'A'))
+	}
+	for i := 0; i < len(b); i++ {
+		if (hash & (1 << (b[i] - 'A'))) == 0 {
+			return false
+		}
+	}
 	return true
 }

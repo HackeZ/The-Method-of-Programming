@@ -53,3 +53,4 @@ func LongestPalindrome1(str string, n int) int {
 
 // Manacher sum longest Palindrome
 // 解法2：Manacher算法
+

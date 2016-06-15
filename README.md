@@ -7,3 +7,8 @@
 
 ### 
 的Golang版本。
+
+### 
+同时也有我自己补写的算法：
+
+> 2.2 Find Two num sum is N.

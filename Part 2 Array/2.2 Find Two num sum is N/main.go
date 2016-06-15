@@ -1,11 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	arrn := []int{1, 2, 4, 5, 7, 11, 15}
 	n := 15
-	num1, num2 := TwoSum1(arrn, n)
+	num1, num2 := TwoSum3(arrn, n)
 	fmt.Println(num1, " + ", num2)
 }
 
@@ -74,3 +77,30 @@ func TwoSum1(arrn []int, n int) (num1, num2 int) {
 
 // TwoSum3 Mean value judgment method
 // 解法3：中值判定法 —— by HackerZ
+func TwoSum3(arrn []int, n int) (num1, num2 int) {
+	mid := n / 2
+	sort.Ints(arrn)
+	for i := 0; i < len(arrn); i++ {
+		if mid < arrn[i] {
+			if i < len(arrn)-i {
+				num1, num2 = midNum(arrn[0:i], arrn[i:len(arrn)], n)
+			} else {
+				num1, num2 = midNum(arrn[i:len(arrn)], arrn[0:i], n)
+			}
+			return num1, num2
+		}
+	}
+	return -1, -1
+}
+
+func midNum(arrS, arrL []int, n int) (num1, num2 int) {
+	for i := 0; i < len(arrS); i++ {
+		result := n - arrS[i]
+		for num := range arrL {
+			if result == num {
+				return arrS[i], result
+			}
+		}
+	}
+	return -1, -1
+}

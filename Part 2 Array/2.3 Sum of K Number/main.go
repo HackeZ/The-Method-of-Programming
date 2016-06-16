@@ -18,8 +18,20 @@ func main() {
 // Time  : 2016/06/15 19:15
 
 // Sum of K Number
-// Input : 10  15 // n num
-// Output: 5+10 7+8
+// Input : 	15  8 // sum n
+// Output: 	8 + 7
+//			6 + 8 + 1
+//			5 + 8 + 2
+//			4 + 8 + 3
+//			2 + 4 + 8 + 1
+//			6 + 7 + 2
+//			5 + 7 + 3
+//			2 + 5 + 7 + 1
+//			3 + 4 + 7 + 1
+//			5 + 6 + 4
+//			3 + 5 + 6 + 1
+//			3 + 4 + 6 + 2
+//			2 + 3 + 4 + 5 + 1
 
 // SumofkNumber1 n Problem turn to n-1 Problem
 // 解法1：n问题转换为n-1问题
@@ -41,3 +53,7 @@ func SumofkNumber1(sum, n int) {
 	list1.Remove(list1.Front())
 	SumofkNumber1(sum, n-1) // 不放n，前n-1个数填满sum
 }
+
+// SumofkNumber2 Backtrackruning
+// 解法2：回溯剪枝
+// func SumofkNumber2()

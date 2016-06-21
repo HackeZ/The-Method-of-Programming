@@ -32,11 +32,11 @@ func main() {
 	fmt.Println("")
 
 	// Method 4
-	fmt.Println("=== Method 4 ===")
-	Input = []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-	Output = Shuffle(Input, len(Input)/2)
-	fmt.Println("Output --> ", Output)
-	fmt.Println("=== Method 4 ===")
+	// fmt.Println("=== Method 4 ===")
+	// Input = []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	// Output = Shuffle(Input, len(Input)/2)
+	// fmt.Println("Output --> ", Output)
+	// fmt.Println("=== Method 4 ===")
 
 }
 

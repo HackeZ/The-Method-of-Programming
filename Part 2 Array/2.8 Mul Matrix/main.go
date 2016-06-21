@@ -39,3 +39,5 @@ func MelMatrix1(matrixA, matrixB, matrixC [][]int, n int) {
 		}
 	}
 }
+
+// MelMatrix2 Strassen Algorithm.

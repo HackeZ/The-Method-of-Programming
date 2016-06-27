@@ -7,15 +7,20 @@ var dp = make([][]int, 11, 11)
 func main() {
 	// Method 1
 	fmt.Println("=== Method 1 ===")
-	strS, strT := "ALGORITHM", "ALTRUISTIC"
+	// strS, strT := "ALGORITHM", "ALTRUISTIC"
+	strS, strT := "sailn", "failing"
 	for i := 0; i < len(strS)+1; i++ {
 		dp2 := make([]int, len(strT)+1) //可用循环对dp2赋值，默认建立初值为0
 		dp[i] = dp2
 	}
-	fmt.Println(dp)
 	fmt.Println("Output --> ", EditDistance(strS, strT))
-	fmt.Println(dp)
-	// dp[0][0] = 0
+	for i := 0; i < len(strT)-1; i++ {
+		for j := 0; j < len(dp[0]); j++ {
+			fmt.Printf("%d ", dp[i][j])
+		}
+		fmt.Printf("\n")
+	}
+	fmt.Println("=== Method 1 ===")
 
 	fmt.Println("")
 }
@@ -47,13 +52,13 @@ func EditDistance(strS, strT string) int {
 	for j = 1; j <= targetLength; j++ {
 		dp[0][j] = j
 	}
-
 	for i = 1; i <= srcLength; i++ {
 		for j = 1; j <= targetLength; j++ {
+			temp := 1 + min(dp[i-1][j], dp[i][j-1])
 			if strS[i-1] == strT[j-1] {
-				dp[i][j] = dp[i-1][j-1]
+				dp[i][j] = min(temp, dp[i-1][j-1])
 			} else {
-				dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1])
+				dp[i][j] = min(temp, 1+dp[i-1][j-1])
 			}
 		}
 	}

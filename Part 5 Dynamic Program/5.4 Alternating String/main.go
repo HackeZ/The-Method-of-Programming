@@ -42,8 +42,11 @@ func IsInterleave(s1, s2, s3 string) bool {
 	for i := 0; i < n+1; i++ {
 		for j := 0; j < m+1; j++ {
 			if dp[i][j] || (i-1 >= 0 && dp[i-1][j] == true &&
-				s1[i-1] == s3[i+j-1]) || (j-1 >= 0 && dp[i][j-1] == true &&
-				s2[j-1] == s3[i+j-1]) {
+				// Get s1 char
+				s1[i-1] == s3[i+j-1]) ||
+				(j-1 >= 0 && dp[i][j-1] == true &&
+					// Get s2 char
+					s2[j-1] == s3[i+j-1]) {
 				dp[i][j] = true
 			} else {
 				dp[i][j] = false

@@ -11,7 +11,7 @@ type BinaryTree struct {
 
 // NewBinaryTree return a BinaryTree with root Node.
 func NewBinaryTree(root *Node) *BinaryTree {
-	return BinaryTree{Root: root}
+	return &BinaryTree{Root: root}
 }
 
 // GetSize return root Size.

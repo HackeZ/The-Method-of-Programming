@@ -1,4 +1,4 @@
-package main
+package BinaryTree
 
 import "math"
 
@@ -210,4 +210,19 @@ func (node *BinaryTree) SetHeight() {
 // @return int64
 func (node *BinaryTree) GetSize() int64 {
 	return node.Size
+}
+
+// SetSize set Size on Node.
+func (node *BinaryTree) SetSize() {
+	node.Size = 1
+	if node.HasLeftChild() {
+		node.Size += node.GetLeftNode().GetSize()
+	}
+	if node.HasRightChild() {
+		node.Size += node.GetRightNode().GetSize()
+	}
+
+	if node.HasParent() {
+		node.Parent.SetSize()
+	}
 }
